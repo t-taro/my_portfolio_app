@@ -1,0 +1,96 @@
+html,body,ul,li{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
+}
+
+h1{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+ul{
+  list-style: none;
+}
+
+.container{
+  width: 1023px;
+  margin: 0 auto;
+}
+
+#top_main{
+  height: 300px;
+  background-image: url("../images/top_main.jpg");
+  /* background: #ddd; */
+  background-position: left;
+  background-size: cover;
+  position: relative;
+}
+
+#title_message{
+  margin: 0 12px 12px;
+  padding: 4px;
+  width: 40%;
+}
+
+#title{
+  color: #fff;
+  font-size: 48px;
+}
+
+#title_message>p{
+  color: #fff;
+}
+
+.auth_menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0 12px 12px;
+  padding: 4px;
+  width: 40%;
+}
+
+.auth_menu>a{
+  display: block;
+}
+
+#letsNew{
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  background-color: #ddd;
+  color: #fff;
+  padding: 0 1rem
+}
+
+/* @media(max-width:1023px){
+  .container{
+    width: 768px;
+  }
+}
+
+@media(max-width:768px){
+  .container{
+    width: 600px;
+  }
+}
+
+@media(max-width:375px){
+  .container{
+    width: 375px;
+  }
+} */

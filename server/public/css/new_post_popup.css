@@ -1,0 +1,14 @@
+.formWrap{
+  /* transition: height 1s overflow 1s; */
+  transition: height 1s;
+  overflow: hidden;
+}
+
+.closed{
+  height: 0px;
+  
+}
+
+.opened{
+  height: 222px;
+}
