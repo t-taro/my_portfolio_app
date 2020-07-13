@@ -15,12 +15,22 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/material_icons.css') }}">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/new_post_popup.css') }}">
 </head>
 <body>
     <div id="app">
+        @auth
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -64,6 +74,8 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    
+                                    <a class="dropdown-item" href="{{ url('/home') }}">Home</a>
                                 </div>
                             </li>
                         @endguest
@@ -71,10 +83,11 @@
                 </div>
             </div>
         </nav>
-
-        <main class="py-4">
+        @endauth
+        <main class="pb-4">
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/new_post_area.js') }}" defer></script>
 </body>
 </html>

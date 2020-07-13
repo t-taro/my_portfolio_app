@@ -1,51 +1,29 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
-  <!-- Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <link rel="stylesheet" href="{{ asset('css/material_icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/new_post_popup.css') }}">
-  <title>3 O'clock</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
   <div class="container">
+    <!-- @guest -->
     <header class="mb-3">
-      @guest
       <section id="top_main">
+        @guest
         <div id="title_message">
           <h1 id="title" class="mb-3">3 O'clock</h1>
           <p>おやつの時間。それは子供たちが笑顔になるじかん。今日はどんなおやつを食べるのかな？お気に入りを見つけたらみんなに教えてあげよう！！</p>
         </div>
-      @else
-      <section>
-        
-        
-      
-      @endguest
+        @endguest
         
         @if (Route::has('login'))
-        <div class="auth_menu"">
-          @auth
-          <a href="{{ url('/home') }}">Home</a>
-          @else
+        <div class="auth_menu">
           <a href="{{ route('login') }}" class="mb-1"><input type="button" class="btn btn-primary" value="Let's Login!"></a>
-          @if (Route::has('register'))
-          <a href="{{ route('register') }}">新規アカウント作成はこちら</a>
-          @endif
-          @endauth
+            @if (Route::has('register'))
+              <a href="{{ route('register') }}">新規アカウント作成はこちら</a>
+            @endif
         </div>
         @endif
       </section>
     </header>
-    <main>
+    <!-- @endguest -->
+    <section>
       <!-- 新規追加 -->
       <h1 id="letsNew"><span class="material-icons">create</span>お気に入りのおやつを教えてね</h1>
       <section id="newPostArea" class="mb-3 w-50">
@@ -76,9 +54,7 @@
         </ul>
       </section>
       
-    </main>
-    
+    </section>
   </div>
-  <script src="{{ asset('js/new_post_area.js') }}"></script>
-</body>
-</html>
+
+@endsection

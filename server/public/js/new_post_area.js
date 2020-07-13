@@ -1,6 +1,5 @@
 'use strict';
 
-// const newPostForm = document.querySelector('#newPostArea>form');
 const formWrap = document.querySelector('.formWrap');
 const letsNew = document.getElementById('letsNew');
 
