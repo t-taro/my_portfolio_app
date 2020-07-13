@@ -49683,6 +49683,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./new_post_area */ "./resources/js/new_post_area.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49821,6 +49823,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/new_post_area.js":
+/*!***************************************!*\
+  !*** ./resources/js/new_post_area.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var formWrap = document.querySelector('.formWrap');
+var letsNew = document.getElementById('letsNew');
+letsNew.addEventListener('click', function () {
+  if (formWrap.classList.contains('closed')) {
+    formWrap.classList.remove('closed');
+    formWrap.classList.add('opened');
+  } else if (formWrap.classList.contains('opened')) {
+    formWrap.classList.remove('opened');
+    formWrap.classList.add('closed');
+  }
+
+  ;
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49839,8 +49867,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ittajiro/my_portfolio/server/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ittajiro/my_portfolio/server/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
