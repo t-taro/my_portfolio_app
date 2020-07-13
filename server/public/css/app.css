@@ -4535,6 +4535,7 @@ input[type=button].btn-block {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  background-color: #C7BF40;
 }
 
 .navbar .container,
@@ -4865,7 +4866,7 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: #fff;
 }
 
 .navbar-light .navbar-brand:hover,

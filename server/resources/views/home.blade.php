@@ -1,3 +1,5 @@
+<!-- 多分使ってないビュー -->
+
 @extends('layouts.app')
 
 @section('content')

@@ -65,6 +65,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/home') }}">Home</a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,8 +76,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    
-                                    <a class="dropdown-item" href="{{ url('/home') }}">Home</a>
                                 </div>
                             </li>
                         @endguest
@@ -89,5 +89,6 @@
         </main>
     </div>
     <script src="{{ asset('js/new_post_area.js') }}" defer></script>
+    <script src="{{ asset('js/like.js') }}" defer></script>
 </body>
 </html>
