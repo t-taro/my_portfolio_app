@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
       $posts = Post::where('user_id', Auth::id())
-                            ->orderBy('updated_at', 'desc')
+                            ->latest()
                             ->get();
       
       foreach($posts as $post)

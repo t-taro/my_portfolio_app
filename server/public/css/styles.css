@@ -83,3 +83,15 @@ ul{
   display: flex;
 }
 
+.like,
+.likeCount,
+.comment,
+.commentCount{
+  user-select: none;
+}
+
+.like,
+.comment{
+  cursor: pointer;
+}
+

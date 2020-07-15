@@ -10,7 +10,7 @@ class PostController extends Controller
 {
   public function index()
   {
-    $posts = Post::all()->sortBy('updated_at');
+    $posts = Post::all()->sortByDesc('created_at');
     
     foreach($posts as $post)
     {
@@ -34,5 +34,15 @@ class PostController extends Controller
     }
     
     return redirect("/");
+  }
+  
+  public function like(Request $request)
+  {
+    $post = Post::find($request->id);
+    $post->like = $request->like;
+    
+    $post->save();
+    
+    return response()->json(['like' => $request->like]);
   }
 }
