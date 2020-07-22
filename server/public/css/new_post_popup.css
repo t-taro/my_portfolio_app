@@ -1,5 +1,4 @@
 .formWrap{
-  /* transition: height 1s overflow 1s; */
   transition: height 1s;
   overflow: hidden;
 }

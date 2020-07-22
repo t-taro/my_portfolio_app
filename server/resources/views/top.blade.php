@@ -8,7 +8,7 @@
         @guest
         <div id="title_message">
           <h1 id="title" class="mb-3">3 O'clock</h1>
-          <p>おやつの時間。それは子供たちが笑顔になるじかん。今日はどんなおやつを食べるのかな？お気に入りを見つけたらみんなに教えてあげよう！！</p>
+          <p>おやつの時間。今日はどんなおやつを食べたかな？お気に入りを見つけたらみんなに教えてあげよう！！</p>
         </div>
         @endguest
         
@@ -25,6 +25,7 @@
     <!-- @endguest -->
     <section>
       <!-- 新規追加 -->
+      @auth
       <h1 id="letsNew"><span class="material-icons">create</span>お気に入りのおやつを教えてね</h1>
       <section id="newPostArea" class="mb-3 w-50">
         <div class="formWrap closed">
@@ -38,8 +39,10 @@
           </form>
         </div>
       </section>
+      @endauth
       
       <!-- 記事リスト -->
+      <!-- liの要素が増減したときはcomment.jsも修正が必要（子要素の○番目と指定している為） -->
       
       <section id="postList">
         <ul class="list-group">
@@ -48,20 +51,52 @@
             <h1 class="snackName">{{$post->item}}</h1>
             <!-- nl2brで改行コードを変換 -->
             <p class="desc">{!! nl2br(e($post->description)) !!}</p>
-            <p class="age">年齢</p>
             <p>{{$post->user}}</p>
             <p>{{$post->created_at}}</p>
             <div class="assessment">
-                <p class="mr-3">
-                  <span class="like material-icons md-18">favorite_border</span>
-                  <span class="likeCount">{{$post->like}}</span>
-                </p>
-                <p><span class="comment material-icons md-18">chat_bubble_outline</span><span class="commentCount">10</span></p>
-              </div>
+              <p class="mr-3">
+                <span class="like material-icons md-18">{{$post->likeState}}</span>
+                <span class="likeCount">{{$post->like}}</span>
+              </p>
+              <p><span class="comment material-icons md-18">chat_bubble_outline</span><span class="commentCount">{{$post->commentCount}}</span></p>
+            </div>
+            
+            <!-- 自分のpostに対してのみ更新、削除が実施可能 -->
+            @if($post->user_id === Auth::id())
+            <div class="update_delete_button">
+              <a href="/post/show/{{$post->id}}"><button class="btn btn-info">update</button></a>
+              <form action="/post/delete/{{$post->id}}" method="post" class="ml-2">
+                @method('DELETE')
+                @csrf
+                <button type="submit" class="btn btn-info">delete</button>
+              </form>
+            </div>
+            @endif
+            
+            <!-- コメント欄 -->
+            <div class="comment_area commentFormWrap closed" data-comment-count="{{$post->commentCount}}">
+              @auth
+              <form action="/comment/{{$post->id}}" method="post">
+                @csrf
+                <input type="text" name="comment">
+                <input type="submit" value="add comment">
+              </form>
+              @endauth
+              <ul class="list-group">
+                @foreach($post->comments as $comment)
+                <li class="comment_list list-group-item">
+                  <p>{{$comment->comment}}</p>
+                  <p>{{$comment->user}}</p>
+                  <p>{{$comment->created_at}}</p>
+                </li>
+                @endforeach
+              </ul>
+            </div>
           </li>
           @endforeach
         </ul>
       </section>
+      
       
     </section>
   </div>

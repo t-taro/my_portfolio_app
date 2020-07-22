@@ -26,6 +26,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/new_post_popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/comment.css') }}">
 </head>
 <body>
     <div id="app">
@@ -87,7 +88,15 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/new_post_area.js') }}" defer></script>
-    <script src="{{ asset('js/like.js') }}" defer></script>
+    @if (url()->current() === 'http://localhost' && Auth::check())
+      <script src="{{ asset('js/new_post_area.js') }}" defer></script>
+      <script src="{{ asset('js/like.js') }}" defer></script>
+      <script src="{{ asset('js/comment.js') }}" defer></script>
+		@endif
+			
+		@if (url()->current() === 'http://localhost/home' && Auth::check())
+			<script src="{{ asset('js/commentForHome.js') }}" defer></script>
+      
+    @endif
 </body>
 </html>

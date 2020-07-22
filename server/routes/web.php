@@ -30,4 +30,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/post', 'PostController@store');
 
+Route::get('/post/show/{post_id}', 'PostController@show');
+
+Route::put('/post/update/{post_id}', 'PostController@update');
+
+Route::delete('/post/delete/{post_id}', 'PostController@delete');
+
 Route::post('/like', 'PostController@like');
+
+Route::post('/comment/{post_id}', 'CommentController@store');

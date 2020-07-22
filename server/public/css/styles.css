@@ -95,3 +95,10 @@ ul{
   cursor: pointer;
 }
 
+.update_delete_button{
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+
